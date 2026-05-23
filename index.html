@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ml">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joliundo — AI CV Tailor · Kerala's Graduate Job Platform</title>
+    <meta name="description" content="Joliundo tailors your CV to any job description in seconds. Built specifically for Malayali graduates and job seekers to land interviews. Free to use." />
+    <link rel="canonical" href="https://joliundo.in" />
+    <meta name="author" content="Joliundo" />
+    <meta name="keywords" content="cv tailor, resume builder, kerala jobs, jobs in kerala, malayali graduates, ai resume, job search, cv generator, interview prep" />
+    <meta name="theme-color" content="#060f0b" />
+    <meta name="msapplication-TileColor" content="#060f0b" />
+    <link rel="alternate" type="text/plain" title="LLM-readable summary" href="/llms.txt" />
+    <meta name="google-site-verification" content="YOUR_GOOGLE_SEARCH_CONSOLE_VERIFICATION_CODE" />
+    
+    <!-- Favicon — full set -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    
+    <!-- Web manifest -->
+    <link rel="manifest" href="/assets/site.webmanifest" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Joliundo — ജോലി ഉണ്ടോ?" />
+    <meta property="og:description" content="AI-powered CV tailoring for Malayali job seekers. Free." />
+    <meta property="og:url" content="https://joliundo.in" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+
+    <!-- SECTION 1: HERO -->
+    <section class="hero" id="hero">
+      <div class="hero__watermark" aria-hidden="true">ജ</div>
+      <div class="hero__content">
+        <span class="hero__tag animate-in" style="--delay: 0ms">MALAYALI-KALK VENDI</span>
+        <h1 class="hero__headline animate-in" style="--delay: 80ms">ജോലി ഉണ്ടോ?</h1>
+        <p class="hero__transliteration animate-in" style="--delay: 160ms">joliundo</p>
+        <div class="hero__divider animate-in" style="--delay: 220ms"></div>
+        <p class="hero__body animate-in" style="--delay: 280ms">
+          The job platform for Malayali graduates. We tailor your CV to every
+          job description&mdash;so your application doesn't sound like everyone else's.
+        </p>
+      </div>
+      <div class="hero__scroll-indicator" aria-hidden="true">↓ scroll</div>
+    </section>
+
+    <!-- SECTION 2: THE EXCHANGE -->
+    <section class="exchange" id="exchange">
+      <div class="container">
+        <div class="exchange__grid">
+
+          <!-- Left: The Offer -->
+          <div class="exchange__offer">
+            <span class="label">WHAT YOU GET</span>
+            <h2 class="exchange__heading">
+              Your CV,<br />
+              rewritten for<br />
+              the job.
+            </h2>
+            <p class="exchange__body">
+              Paste any job description. Upload your CV. We rewrite it specifically
+              for that role&mdash;keywords, structure, tone. One application, one shot.
+            </p>
+            <p class="exchange__body exchange__body--emphasis">
+              No account. No payment.<br />
+              Just leave your email and use it now.
+            </p>
+            <ul class="exchange__features">
+              <li>→&nbsp; Tailored to the job description</li>
+              <li>→&nbsp; ATS-friendly formatting</li>
+              <li>→&nbsp; In under 60 seconds</li>
+            </ul>
+          </div>
+
+          <!-- Right: Form + CV Tool -->
+          <div class="exchange__right">
+
+            <!-- State A: Email gate -->
+            <div class="tool-box" id="state-a">
+              <span class="label">ENTER YOUR EMAIL</span>
+              <div class="email-form">
+                <input
+                  type="email"
+                  id="email-input"
+                  class="email-input"
+                  placeholder="your@email.com"
+                  autocomplete="email"
+                  spellcheck="false"
+                />
+                <p class="email-error" id="email-error" aria-live="polite"></p>
+                <button class="btn-primary" id="access-btn" type="button">
+                  <span class="btn-text">Get Access</span>
+                  <span class="btn-spinner" aria-hidden="true"></span>
+                </button>
+                <p class="fine-print">No spam. No account needed. Just your email.</p>
+              </div>
+            </div>
+
+            <!-- State B: CV Tool (hidden initially) -->
+            <div class="tool-box tool-box--cv" id="state-b" aria-hidden="true">
+              <div class="cv-tool">
+                <div class="cv-tool__header">
+                  <span class="label">CV TAILOR — BETA</span>
+                  <span class="cv-tool__saved" id="email-saved"></span>
+                </div>
+
+                <div class="cv-tool__tabs" role="tablist">
+                  <button
+                    class="cv-tab cv-tab--active"
+                    role="tab"
+                    aria-selected="true"
+                    data-tab="jd"
+                    id="tab-jd"
+                    aria-controls="panel-jd"
+                  >Job Description</button>
+                  <button
+                    class="cv-tab"
+                    role="tab"
+                    aria-selected="false"
+                    data-tab="cv"
+                    id="tab-cv"
+                    aria-controls="panel-cv"
+                  >Your CV</button>
+                </div>
+
+                <div id="panel-jd" role="tabpanel" aria-labelledby="tab-jd">
+                  <textarea
+                    class="cv-textarea"
+                    id="jd-textarea"
+                    placeholder="Paste the job description here..."
+                    aria-label="Job description"
+                  ></textarea>
+                </div>
+                <div id="panel-cv" role="tabpanel" aria-labelledby="tab-cv" hidden>
+                  <textarea
+                    class="cv-textarea"
+                    id="cv-textarea"
+                    placeholder="Paste your current CV / resume text here..."
+                    aria-label="Your current CV"
+                  ></textarea>
+                </div>
+
+                <button class="btn-primary btn-primary--cv" id="rewrite-btn" type="button">
+                  <span class="btn-text">Rewrite My CV →</span>
+                  <span class="btn-spinner" aria-hidden="true"></span>
+                </button>
+
+                <!-- Output area (hidden initially) -->
+                <div class="cv-output" id="cv-output" hidden>
+                  <div class="cv-output__header">
+                    <span class="label">TAILORED OUTPUT</span>
+                    <button class="copy-btn" id="copy-btn" type="button">Copy</button>
+                  </div>
+                  <div class="cv-output__error" id="output-error" aria-live="polite"></div>
+                  <div class="cv-output__text" id="output-text" aria-label="Tailored CV output"></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: HOW IT WORKS -->
+    <section class="how" id="how">
+      <div class="container">
+        <div class="how__steps">
+          <div class="how__step" data-step="01">
+            <div class="how__step-inner">
+              <span class="how__number" aria-hidden="true">01</span>
+              <div class="how__step-content">
+                <h3 class="how__step-heading">Paste the job description</h3>
+                <p class="how__step-body">Copy it from LinkedIn, Naukri, or wherever. Raw text is fine.</p>
+              </div>
+            </div>
+          </div>
+          <div class="how__connector" aria-hidden="true"></div>
+          <div class="how__step" data-step="02">
+            <div class="how__step-inner">
+              <span class="how__number" aria-hidden="true">02</span>
+              <div class="how__step-content">
+                <h3 class="how__step-heading">Paste your current CV</h3>
+                <p class="how__step-body">Don't worry if it's generic. That's exactly what we're fixing.</p>
+              </div>
+            </div>
+          </div>
+          <div class="how__connector" aria-hidden="true"></div>
+          <div class="how__step" data-step="03">
+            <div class="how__step-inner">
+              <span class="how__number" aria-hidden="true">03</span>
+              <div class="how__step-content">
+                <h3 class="how__step-heading">Get your tailored CV</h3>
+                <p class="how__step-body">Rewritten in under 60 seconds. Copy and apply immediately.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <span class="footer__left">joliundo.in — ജോലി ഉണ്ടോ?</span>
+          <span class="footer__right">Kerala, India · 2026</span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>

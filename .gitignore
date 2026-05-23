@@ -1,0 +1,33 @@
+# ── Dependencies ────────────────────────────────
+node_modules/
+
+# ── Environment / secrets ────────────────────────
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+# .env.example is committed intentionally — it documents required vars without values
+
+# ── Build output ─────────────────────────────────
+dist/
+dist-ssr/
+
+# ── Vite cache ───────────────────────────────────
+.vite/
+
+# ── OS / editor noise ───────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+*.suo
+*.user
+.idea/
+.vscode/settings.json
+
+# ── Logs ────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

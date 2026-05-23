@@ -1,0 +1,21 @@
+# Joliundo
+
+Joliundo (https://joliundo.in) is an AI-powered CV tailoring platform built specifically for Malayali graduates and job seekers in Kerala, India.
+
+## Purpose
+The platform allows job seekers to submit their email to gain access to a tool that refines and tailors their resume/CV to match a specific job description in under 60 seconds, optimizing for ATS systems.
+
+## Features
+- **Email Gate**: Inline waitlist form that stores email addresses in localStorage (`joliundo_waitlist`).
+- **CV Tailor**: Paste job description + paste current CV → AI rewrites the CV.
+- **Privacy First**: Free to use, no account required.
+
+## Stack
+- Vanilla HTML / CSS / JS (Vite project)
+- Styling: Custom HSL and hex properties, fluid spacing, Outfit and Playfair Display typography.
+- AI Integration: OpenRouter API calling Gemini 2.0 Flash (`google/gemini-2.0-flash-exp:free`).
+
+## Key Project Files
+- `index.html`: The single main template of the platform containing all structure and SEO tags.
+- `main.js`: Contains logic for waitlist submissions, CV rewriting using OpenRouter, UI state transitions, and scroll animations.
+- `style.css`: Core design system using custom CSS properties. Features custom green color palette and premium dark mode variables.

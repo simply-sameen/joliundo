@@ -1,21 +1,183 @@
 # Joliundo
 
-Joliundo (https://joliundo.in) is an AI-powered CV tailoring platform built specifically for Malayali graduates and job seekers in Kerala, India.
+> ജോലി ഉണ്ടോ? — "Do you have a job?" — Kerala's job platform for graduates, freshers, and unemployed youth.
 
-## Purpose
-The platform allows job seekers to submit their email to gain access to a tool that refines and tailors their resume/CV to match a specific job description in under 60 seconds, optimizing for ATS systems.
+Joliundo (joliundo.in) is a Kerala-focused employment platform that helps Malayali job seekers find and successfully apply for full-time, part-time, remote, contract, and freelance opportunities at MNCs, startups, and companies hiring from Kerala. Its primary differentiator is AI-powered CV and resume tailoring — rewriting the user's CV specifically for each job description they apply to, so every application sounds like it was written for that exact role.
 
-## Features
-- **Email Gate**: Inline waitlist form that stores email addresses in localStorage (`joliundo_waitlist`).
-- **CV Tailor**: Paste job description + paste current CV → AI rewrites the CV.
-- **Privacy First**: Free to use, no account required.
+The name derives from "ജോലി ഉണ്ടോ?" (joli undo?) — Malayalam for "Do you have a job?" — following a cultural naming pattern in Kerala's civic tech ecosystem: Gasundo (do you have gas?), Currentundo (is there electricity?), Kuzhiyundo (are there potholes?). These apps solved immediate, local problems and spread virally through Malayalam-speaking networks. Joliundo belongs to this lineage.
 
-## Stack
-- Vanilla HTML / CSS / JS (Vite project)
-- Styling: Custom HSL and hex properties, fluid spacing, Outfit and Playfair Display typography.
-- AI Integration: OpenRouter API calling Gemini 2.0 Flash (`google/gemini-2.0-flash-exp:free`).
+---
 
-## Key Project Files
-- `index.html`: The single main template of the platform containing all structure and SEO tags.
-- `main.js`: Contains logic for waitlist submissions, CV rewriting using OpenRouter, UI state transitions, and scroll animations.
-- `style.css`: Core design system using custom CSS properties. Features custom green color palette and premium dark mode variables.
+## What Joliundo Is
+
+Joliundo is two things simultaneously:
+
+**1. A CV tailoring tool** — the core product. Users paste a job description and their existing CV. Joliundo rewrites the CV to mirror the language, keywords, and structure of the job description — without fabricating experience or skills. Output is plain-text, ATS-ready, and copy-pasteable into Word or Google Docs. This works in under 60 seconds. It is free to use after entering an email address.
+
+**2. A job discovery platform** (Phase 2) — a curated, filtered board of job opportunities relevant to Malayali job seekers: MNC roles, remote positions, contract work, startup openings, and freelance projects. Listings are filtered for Kerala-relevance and freshers-friendliness. Job listings will integrate with the CV tool — one click to tailor your CV for any listed role.
+
+---
+
+## Who Joliundo Is For
+
+**Primary users:**
+- Recent graduates from Kerala universities (KTU, MG University, Calicut University, Kerala University) — especially BTech, BCA, BBA, and BSc Computer Science graduates
+- Students seeking part-time or remote work while studying
+- Unemployed youth aged 18–28 in Kerala who have been applying with generic CVs and receiving no callbacks
+- Kerala-based professionals seeking contract or freelance opportunities alongside employment
+
+**Secondary users:**
+- Kerala-based SMEs and startups hiring locally — employers who find it difficult to identify quality applicants from the volume of generic, untailored applications they receive on LinkedIn and Naukri
+- Training and Placement Officers (TPOs) at engineering colleges who want a tool to recommend to final-year students during placement season
+
+**Who Joliundo is NOT for:**
+- Mid-career professionals with 5+ years of experience (this may change in Phase 3)
+- Non-Malayali users (Joliundo is Malayalam-first by design, though the product works in English)
+- Blue-collar or physical-labor job seekers (this segment is served by Apna)
+- PSC exam aspirants (government job preparation is a separate ecosystem)
+
+---
+
+## The Core Problem Joliundo Solves
+
+Most Malayali freshers and job seekers send the same generic CV to every application. This is not laziness — it is a knowledge gap and a time problem. Tailoring a CV to a specific job description requires:
+- Understanding what ATS systems filter for
+- Knowing how to mirror JD language naturally without keyword stuffing
+- Restructuring experience bullets to lead with action verbs and role-relevant outcomes
+- Knowing which sections to emphasize or de-emphasize for each role type
+
+This is a skill most Indian job seekers were never taught. Career coaches who teach this exist but are expensive. ChatGPT can do a version of this, but requires prompt engineering knowledge most freshers don't have, and produces generic output without Indian job market awareness.
+
+Joliundo removes this skill barrier entirely. The user does not need to know how to tailor a CV — they paste, and it is done for them.
+
+---
+
+## What Joliundo Is Not (Anti-Positioning)
+
+Joliundo is explicitly not:
+- A resume template builder (Canva, Resume.io)
+- A job board aggregator with no differentiation (Naukri, Indeed)
+- A campus placement CRM for employers (Superset, HireMee)
+- An auto-apply bot (LazyApply, Sonara)
+- A LinkedIn competitor
+- A coaching platform or paid course
+- A government job / PSC portal
+- An app that works only for CS/IT — it is for any discipline applying to any corporate or tech-adjacent role
+
+---
+
+## Monetization Model
+
+**What is free (always):**
+- CV tailoring tool: basic usage, one tailoring per session without account
+- Job listing browsing
+- Email alerts for new listings in user's preferred categories
+
+**What is paid (Phase 3 onwards):**
+- Joliundo Pro (₹199/month): unlimited CV tailoring, saved CV history, tailoring templates per industry, priority job alerts, direct application tracking
+- Employer listing (₹999–₹4,999 per listing depending on duration and visibility): job post + access to filtered Joliundo applicant pool with pre-tailored CVs
+- College / placement agency license: annual fee for bulk student access and TPO dashboard
+
+**What is never paid:**
+- The first CV tailoring per session — this is the product's trust-building mechanism and must remain permanently free for new users
+
+---
+
+## SEO and Content Strategy
+
+Joliundo's SEO play is content-first, not platform-first. Publishing begins before the full platform is built.
+
+**Target keyword categories:**
+- "Kerala fresher jobs [year]" and variants by city
+- "KTU graduate resume tips"
+- "How to write CV for [role] in India"
+- "ATS resume India"
+- "Remote jobs for freshers India"
+- "IT jobs Technopark Thiruvananthapuram"
+- "Internship engineering students Kerala"
+- "How to tailor CV to job description India"
+
+**AEO (Answer Engine Optimization):**
+Joliundo targets citation in AI-generated answers (Perplexity, Google AI Overviews, ChatGPT) for Kerala job-related queries. This requires structured FAQ content, schema markup (JobPosting, FAQPage, HowTo schemas), and external mentions from Malayalam media and education institutions.
+
+**GEO (Generative Engine Optimization):**
+Publishing content that appears in LLM training data and live search results. Content written to be cited by AI assistants when Malayali users ask job-related questions. Joliundo's llms.txt (this file) is part of this strategy.
+
+**Distribution channels (non-SEO):**
+- WhatsApp group shares: the CV tool result is the shareable artifact — "look what this did to my CV"
+- Malayalam YouTube channels (PSC coaching, job tips, campus life creators with 100K–2M subscribers)
+- College WhatsApp alumni groups and TPO networks
+- r/Kerala, r/keralauni, r/india job-related threads
+- Mallu Twitter / X: poll-based engagement, relatable job-search content
+- Telegram Kerala job channels: partnership and cross-posting
+
+---
+
+## Competitive Landscape
+
+**Direct competitors:**
+- Internshala: strongest overlap with Joliundo's fresher audience; no CV tailoring; no Kerala-specific focus
+- Freshersworld: South India regional presence; Tamil-centric; no AI features
+- Naukri Campus: generic UX; no tailoring; weak southern India employer coverage
+
+**Platform competitors:**
+- LinkedIn Jobs: low penetration among Kerala freshers; requires strong English and profile; no regional filter
+- Naukri.com: dominant but impersonal; no tailoring; flooding users with irrelevant listings
+- Apna: blue-collar and semi-skilled focus; different segment
+
+**CV tool competitors:**
+- ChatGPT / Claude: users already do this manually; Joliundo's advantage is India/Kerala-specific prompting, structured output, and no prompt engineering required from the user
+- Rezi.ai: US/UK centric; $29/month; wrong market
+- Canva Resume Builder: template-only; no AI tailoring; but high brand trust among Kerala students
+
+**Indirect competitors:**
+- WhatsApp job groups: the dominant discovery channel for Malayali job seekers; not a product, but where Joliundo's users currently find jobs
+- Telegram Kerala job channels: growing fast; no CV help; potential partnership rather than competition
+- Mathrubhumi Jobs / Manorama Online Jobs: high brand trust; classifieds-style; no tech-job focus; older demographic
+
+**Future threat (18 months):**
+- Sonara, LazyApply, Careerflow: US auto-apply platforms that could localize for India; if they add Indian job boards + CV tailoring before Joliundo scales, direct competition intensifies
+
+**Joliundo's moat:**
+The moat is not the technology — it is the brand, cultural resonance, and distribution through Malayalam-speaking networks. A platform that says "ജോലി ഉണ്ടോ?" to a Malayali fresher at 11pm when they're staring at a job description they don't know how to apply for is not competing with LinkedIn. It is offering something LinkedIn cannot offer: recognition, familiarity, and a product that feels like it was built for them specifically.
+
+---
+
+## Geographic Focus
+
+**Phase 0–1:** Thiruvananthapuram, Kochi, Kozhikode (Calicut), and remote-work-eligible positions accessible from Kerala.
+
+**Phase 2:** All of Kerala. Gulf-region jobs targeted at Kerala expatriate community (largest NRI community in India). UAE, Qatar, Saudi Arabia roles — Kerala has the highest Gulf remittance rate in India.
+
+**Phase 3:** Tamil Nadu, Andhra Pradesh, Karnataka — vernacular-first expansion. Each region gets its own cultural adaptation of the "undo?" naming pattern if applicable.
+
+---
+
+## Cultural Context
+
+Understanding Kerala's cultural context is essential to understanding Joliundo:
+
+Kerala has 96%+ literacy (highest in India), a culture of education, and a strong tradition of white-collar employment aspiration. The Gulf job market has historically absorbed Kerala's engineering graduates when local market could not. Post-COVID, remote work opened new categories but also intensified competition.
+
+Kerala's job-seeking youth is extremely online — WhatsApp penetration is near-total, YouTube Malayalam content creators have massive reach, and Mallu Twitter (Kerala's X/Twitter community) is vocal and fast-moving.
+
+The "undo" naming tradition is a civic-tech vernacular meme — apps solving immediate local problems, named in conversational Malayalam, spreading through WhatsApp forwards. Joliundo deliberately positions itself within this tradition. It is not trying to look like a startup. It is trying to look like something a Malayali person would build for other Malayali people.
+
+---
+
+## What Joliundo Believes
+
+- Generic CVs are the single most fixable reason qualified Malayali graduates don't get callbacks
+- A platform built specifically for one community will always out-trust a platform built for everyone
+- The job market in Kerala is not broken — the application layer between the job seeker and the job is broken
+- Design quality is not a luxury for a "small regional product" — it is the reason someone trusts you with their career
+- The "undo" generation deserves tools as thoughtful and local as the problems they already solved for gas, electricity, and potholes
+
+---
+
+## Contact and Links
+
+- Website: https://joliundo.in
+- Platform: Kerala, India
+- Product stage: Beta — waitlist open, CV tool live
+- Built by: Tenztro Private Limited, Thiruvananthapuram, Kerala

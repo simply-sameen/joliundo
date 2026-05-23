@@ -2,18 +2,23 @@
 // so VITE_OPENROUTER_API_KEY is still readable by anyone who inspects the bundle.
 const OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY
 
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY
+
 // ─────────────────────────────────────────
 // EMAIL STORAGE
-// TODO: Replace with Supabase or Resend API call before launch
 // ─────────────────────────────────────────
-const saveEmail = (email) => {
-  const entry = {
-    email,
-    timestamp: new Date().toISOString(),
-    userAgent: navigator.userAgent
-  }
-  const existing = JSON.parse(localStorage.getItem('joliundo_waitlist') || '[]')
-  localStorage.setItem('joliundo_waitlist', JSON.stringify([...existing, entry]))
+const saveEmail = async (email) => {
+  await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+    method: 'POST',
+    headers: {
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+      'Content-Type': 'application/json',
+      'Prefer': 'return=minimal'
+    },
+    body: JSON.stringify({ email, user_agent: navigator.userAgent })
+  })
 }
 
 // ─────────────────────────────────────────
@@ -122,14 +127,14 @@ const initEmailGate = () => {
     }, 600)
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const email = input.value.trim()
     if (!isValidEmail(email)) {
       showError('Enter a valid email')
       return
     }
     clearError()
-    saveEmail(email)
+    await saveEmail(email)
     transitionToTool(email)
   }
 

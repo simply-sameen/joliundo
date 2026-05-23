@@ -127,14 +127,14 @@ const initEmailGate = () => {
     }, 600)
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     const email = input.value.trim()
     if (!isValidEmail(email)) {
       showError('Enter a valid email')
       return
     }
     clearError()
-    await saveEmail(email)
+    saveEmail(email)
     transitionToTool(email)
   }
 

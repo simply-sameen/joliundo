@@ -1,3 +1,6 @@
+import { inject } from '@vercel/analytics'
+inject()
+
 // TODO: Move to a backend proxy before public launch — Vite inlines env vars into the JS bundle at build time,
 // so VITE_OPENROUTER_API_KEY is still readable by anyone who inspects the bundle.
 const OPENROUTER_API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY

@@ -1,22 +1,35 @@
-# ── Dependencies ────────────────────────────────
+# ── Dependencies ─────────────────────────────────
 node_modules/
 
-# ── Environment / secrets ────────────────────────
+# ── Environment / secrets ─────────────────────────
 .env
 .env.local
 .env.*.local
 .env.development
 .env.production
-# .env.example is committed intentionally — it documents required vars without values
+# .env.example is committed intentionally — documents required vars without values
 
-# ── Build output ─────────────────────────────────
+# ── Next.js build output ──────────────────────────
+.next/
+out/
+
+# ── Vite build output (legacy) ────────────────────
 dist/
 dist-ssr/
 
-# ── Vite cache ───────────────────────────────────
+# ── Caches ────────────────────────────────────────
 .vite/
+.turbo/
+.swc/
 
-# ── OS / editor noise ───────────────────────────
+# ── Vercel ────────────────────────────────────────
+.vercel/
+
+# ── TypeScript ────────────────────────────────────
+*.tsbuildinfo
+next-env.d.ts
+
+# ── OS / editor noise ────────────────────────────
 .DS_Store
 Thumbs.db
 desktop.ini
@@ -25,9 +38,12 @@ desktop.ini
 .idea/
 .vscode/settings.json
 
-# ── Logs ────────────────────────────────────────
+# ── Logs ─────────────────────────────────────────
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+
+# ── Claude Code local settings ───────────────────
+.claude/settings.local.json
